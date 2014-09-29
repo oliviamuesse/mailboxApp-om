@@ -16,6 +16,8 @@ class MailViewController: UIViewController {
     @IBOutlet weak var searchView: UIImageView!
     @IBOutlet weak var messageView: UIImageView!
     @IBOutlet weak var feedView: UIImageView!
+    @IBOutlet weak var containerView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,9 @@ class MailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onPanMessage(gestureRecognizer: UIPanGestureRecognizer) {
+        
+    }
 
     /*
     // MARK: - Navigation
