@@ -28,7 +28,7 @@
                                         <rect key="frame" x="0.0" y="101" width="320" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <view contentMode="scaleToFill" id="jRG-4D-WdC">
+                                    <view contentMode="scaleToFill" id="jRG-4D-WdC" userLabel="Container View">
                                         <rect key="frame" x="0.0" y="143" width="320" height="86"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
@@ -52,12 +52,13 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <gestureRecognizers/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="CWr-Lx-HmF" appends="YES" id="G9g-go-ORv"/>
-                                                </connections>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.6630859375" green="0.6630859375" blue="0.6630859375" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.85564811862244894" green="0.85564811862244894" blue="0.85564811862244894" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="lM4-fa-ccZ" appends="YES" id="e5D-kb-r1P"/>
+                                        </connections>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feed" id="n2F-WW-3dp">
                                         <rect key="frame" x="0.0" y="229" width="320" height="1202"/>
@@ -79,9 +80,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="archiveIcon" destination="74k-Et-mId" id="E4m-jP-WT5"/>
                         <outlet property="containerView" destination="jRG-4D-WdC" id="YWI-PH-qoN"/>
+                        <outlet property="deleteIcon" destination="mZE-zh-4TJ" id="dQM-Jc-8qi"/>
                         <outlet property="feedView" destination="n2F-WW-3dp" id="V4g-Bc-fgP"/>
                         <outlet property="helpView" destination="CnX-Iy-Kbt" id="oVi-hw-Ahz"/>
+                        <outlet property="laterIcon" destination="Yw1-Y6-tJQ" id="4IS-y2-pR5"/>
+                        <outlet property="listIcon" destination="5LX-N3-ynJ" id="V0P-ce-UR5"/>
                         <outlet property="messageView" destination="n75-1I-mCt" id="g4x-Rd-By0"/>
                         <outlet property="navView" destination="Uac-9i-zkt" id="xCU-FX-wYN"/>
                         <outlet property="scrollView" destination="rte-XS-Zdg" id="PT7-3E-X1e"/>
@@ -89,9 +94,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="CWr-Lx-HmF">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="lM4-fa-ccZ" userLabel="panContainerView">
                     <connections>
-                        <action selector="onPanMessage:" destination="vXZ-lx-hvc" id="4af-7K-vEY"/>
+                        <action selector="onPanContainer:" destination="vXZ-lx-hvc" id="Mgq-au-RKl"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>
