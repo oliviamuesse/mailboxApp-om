@@ -82,30 +82,35 @@ class MailViewController: UIViewController {
         } else if gestureRecognizer.state == UIGestureRecognizerState.Changed {
             messageView.center.x = translation.x + 160
             //Swipe right, see red
-            if velocity.x > 0 && translation.x <= 140 && imageCenter.x > 160 {
-                UIView.animateWithDuration(0.3, animations: { () -> Void in
+            if velocity.x > 0 && location.x >= 130 && location.x < 200 {
+                self.deleteIcon.center.x = translation.x - 30
+                UIView.animateWithDuration(0.2, animations: { () -> Void in
                     self.containerView.backgroundColor = UIColor.redColor()
                     self.showDeleteIcon()
                 })
             //Swipe right, see green
-            } else if velocity.x > 0 && translation.x > 140 {
-                UIView.animateWithDuration(0.3, animations: { () -> Void in
+            } else if velocity.x > 0 && location.x >= 200 && location.x < 320 {
+                self.archiveIcon.center.x = translation.x - 30
+                UIView.animateWithDuration(0.1, animations: { () -> Void in
                     self.containerView.backgroundColor = UIColor.greenColor()
                     self.showArchiveIcon()
                 })
             //Swipe left see yellow
-            } else if velocity.x < 0 && translation.x >= -160 {
-                UIView.animateWithDuration(0.3, animations: { () -> Void in
+            } else if velocity.x < 0 && location.x <= 130 && location.x > 70 {
+                self.laterIcon.center.x = translation.x + 350
+                UIView.animateWithDuration(0.2, animations: { () -> Void in
                     self.containerView.backgroundColor = UIColor.yellowColor()
                     self.showLaterIcon()
                 })
             //Swipe left see brown
-            } else if velocity.x < 0 && translation.x < -160 {
-                UIView.animateWithDuration(0.3, animations: { () -> Void in
+            } else if velocity.x < 0 && location.x <= 70 && location.x > -120  {
+                self.listIcon.center.x = translation.x + 350
+                UIView.animateWithDuration(0.1, animations: { () -> Void in
                     self.containerView.backgroundColor = UIColor.brownColor()
                     self.showListIcon()
                 })
             } else {
+                hideIcons()
                 containerView.backgroundColor = UIColor.grayColor()
             }
             
