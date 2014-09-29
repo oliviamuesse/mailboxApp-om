@@ -58,11 +58,17 @@ class MailViewController: UIViewController {
             }
         } else if gestureRecognizer.state == UIGestureRecognizerState.Ended {
             if translation.x <= -120 && imageCenter.x <= 100 {
-                self.messageView.center.x = -320
+                UIView.animateWithDuration(0.3, animations: { () -> Void in
+                    self.messageView.center.x = -320
+                })
             } else if translation.x >= 120 && imageCenter.x >= 100 {
-                self.messageView.center.x = 480
+                UIView.animateWithDuration(0.3, animations: { () -> Void in
+                    self.messageView.center.x = 480
+                })
             } else {
-                self.messageView.center.x = 160
+                UIView.animateWithDuration(0.3, animations: { () -> Void in
+                    self.messageView.center.x = 160
+                })
             }
         }
 
