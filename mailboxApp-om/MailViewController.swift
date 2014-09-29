@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MailViewController: UIViewController {
+class MailViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var navView: UIImageView!
@@ -61,6 +61,7 @@ class MailViewController: UIViewController {
         super.viewDidLoad()
         scrollView.contentSize = CGSizeMake(320, 1438)
         hideIcons ()
+        scrollView.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -82,28 +83,28 @@ class MailViewController: UIViewController {
         } else if gestureRecognizer.state == UIGestureRecognizerState.Changed {
             messageView.center.x = translation.x + 160
             //Swipe right, see red
-            if velocity.x > 0 && location.x >= 130 && location.x < 200 {
+            if imageCenter.x >= 220 && imageCenter.x < 280 {
                 self.deleteIcon.center.x = translation.x - 30
                 UIView.animateWithDuration(0.2, animations: { () -> Void in
                     self.containerView.backgroundColor = UIColor.redColor()
                     self.showDeleteIcon()
                 })
             //Swipe right, see green
-            } else if velocity.x > 0 && location.x >= 200 && location.x < 320 {
+            } else if imageCenter.x >= 280 && location.x < 320 {
                 self.archiveIcon.center.x = translation.x - 30
                 UIView.animateWithDuration(0.1, animations: { () -> Void in
                     self.containerView.backgroundColor = UIColor.greenColor()
                     self.showArchiveIcon()
                 })
             //Swipe left see yellow
-            } else if velocity.x < 0 && location.x <= 130 && location.x > 70 {
+            } else if imageCenter.x <= 100 && imageCenter.x > 10 {
                 self.laterIcon.center.x = translation.x + 350
                 UIView.animateWithDuration(0.2, animations: { () -> Void in
                     self.containerView.backgroundColor = UIColor.yellowColor()
                     self.showLaterIcon()
                 })
             //Swipe left see brown
-            } else if velocity.x < 0 && location.x <= 70 && location.x > -120  {
+            } else if imageCenter.x <= 10 && imageCenter.x > -120  {
                 self.listIcon.center.x = translation.x + 350
                 UIView.animateWithDuration(0.1, animations: { () -> Void in
                     self.containerView.backgroundColor = UIColor.brownColor()
@@ -116,13 +117,26 @@ class MailViewController: UIViewController {
             
         } else if gestureRecognizer.state == UIGestureRecognizerState.Ended {
             hideIcons()
-            if translation.x <= -120 && imageCenter.x <= 100 {
-                UIView.animateWithDuration(0.3, animations: { () -> Void in
-                    self.messageView.center.x = -320
-                })
-            } else if translation.x >= 120 && imageCenter.x >= 100 {
+            if velocity.x > 0 && imageCenter.x >= 220 && imageCenter.x < 280 {
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
                     self.messageView.center.x = 480
+                    self.containerView.backgroundColor = UIColor.redColor()
+                })
+            } else if velocity.x > 0 && imageCenter.x >= 280 && location.x < 320 {
+                UIView.animateWithDuration(0.3, animations: { () -> Void in
+                    self.messageView.center.x = 480
+                    self.containerView.backgroundColor = UIColor.greenColor()
+                })
+
+            } else if velocity.x < 0 && imageCenter.x <= 100 && imageCenter.x > 10 {
+                UIView.animateWithDuration(0.3, animations: { () -> Void in
+                    self.messageView.center.x = -320
+                    self.containerView.backgroundColor = UIColor.yellowColor()
+                })
+            } else if velocity.x < 0 && imageCenter.x <= 10 && imageCenter.x > -120 {
+                UIView.animateWithDuration(0.3, animations: { () -> Void in
+                    self.messageView.center.x = -320
+                    self.containerView.backgroundColor = UIColor.brownColor()
                 })
             } else {
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
