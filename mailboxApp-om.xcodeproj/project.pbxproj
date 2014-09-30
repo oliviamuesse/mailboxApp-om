@@ -14,6 +14,7 @@
 		4525E08519D89310008C9892 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4525E08319D89310008C9892 /* LaunchScreen.xib */; };
 		4525E09119D89310008C9892 /* mailboxApp_omTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4525E09019D89310008C9892 /* mailboxApp_omTests.swift */; };
 		4525E09B19D8ED5D008C9892 /* MailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4525E09A19D8ED5D008C9892 /* MailViewController.swift */; };
+		45CBAAA919DA388E00D41DDC /* RescheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CBAAA819DA388E00D41DDC /* RescheduleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		4525E08F19D89310008C9892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4525E09019D89310008C9892 /* mailboxApp_omTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mailboxApp_omTests.swift; sourceTree = "<group>"; };
 		4525E09A19D8ED5D008C9892 /* MailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailViewController.swift; sourceTree = "<group>"; };
+		45CBAAA819DA388E00D41DDC /* RescheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RescheduleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				4525E07A19D89310008C9892 /* AppDelegate.swift */,
 				4525E07C19D89310008C9892 /* ViewController.swift */,
 				4525E09A19D8ED5D008C9892 /* MailViewController.swift */,
+				45CBAAA819DA388E00D41DDC /* RescheduleViewController.swift */,
 				4525E07E19D89310008C9892 /* Main.storyboard */,
 				4525E08119D89310008C9892 /* Images.xcassets */,
 				4525E08319D89310008C9892 /* LaunchScreen.xib */,
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45CBAAA919DA388E00D41DDC /* RescheduleViewController.swift in Sources */,
 				4525E07D19D89310008C9892 /* ViewController.swift in Sources */,
 				4525E07B19D89310008C9892 /* AppDelegate.swift in Sources */,
 				4525E09B19D8ED5D008C9892 /* MailViewController.swift in Sources */,
@@ -409,6 +413,7 @@
 				4525E09619D89310008C9892 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4525E09719D89310008C9892 /* Build configuration list for PBXNativeTarget "mailboxApp-omTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				4525E09919D89310008C9892 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

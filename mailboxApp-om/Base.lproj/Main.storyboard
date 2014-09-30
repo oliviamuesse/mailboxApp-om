@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
@@ -74,6 +74,10 @@
                                         </segments>
                                         <color key="tintColor" red="0.10478098934656307" green="0.72996175644663941" blue="0.90300143494897955" alpha="1" colorSpace="calibratedRGB"/>
                                     </segmentedControl>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reschedule" id="YJ6-ej-a06">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -89,6 +93,7 @@
                         <outlet property="listIcon" destination="5LX-N3-ynJ" id="V0P-ce-UR5"/>
                         <outlet property="messageView" destination="n75-1I-mCt" id="g4x-Rd-By0"/>
                         <outlet property="navView" destination="Uac-9i-zkt" id="xCU-FX-wYN"/>
+                        <outlet property="rescheduleView" destination="YJ6-ej-a06" id="LU6-Xv-FSk"/>
                         <outlet property="scrollView" destination="rte-XS-Zdg" id="PT7-3E-X1e"/>
                         <outlet property="searchView" destination="he6-sX-iCf" id="1Jz-GQ-c3L"/>
                     </connections>
@@ -113,6 +118,7 @@
         <image name="mail_nav_icon" width="25" height="20"/>
         <image name="message" width="320" height="86"/>
         <image name="nav" width="320" height="65"/>
+        <image name="reschedule" width="320" height="568"/>
         <image name="search" width="320" height="42"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
