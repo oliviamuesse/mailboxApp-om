@@ -25,19 +25,19 @@ class MailViewController: UIViewController {
     
     @IBAction func onTapReschedule(sender: UITapGestureRecognizer) {
         rescheduleView.alpha = 0
-        UIView.animateWithDuration(0, animations: { () -> Void in
-            self.messageView.alpha = 0
+        messageView.frame.origin.x = 0
+        messageView.frame.origin.y = 0
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.feedView.frame.origin.y = 143
             self.scrollView.contentSize = CGSizeMake(320, 1352)
             }) { (finished: Bool) -> Void in
-                self.delay(0.3) {
+                UIView.animateWithDuration(0.3, animations: { () -> Void in
                     self.messageView.alpha = 1
                     self.messageView.frame.origin.x = 0
                     self.feedView.frame.origin.y = 229
                     self.scrollView.contentSize = CGSizeMake(320, 1438)
-                }
+                })
         }
-        
     }
 
     func hideIcons () {
@@ -182,14 +182,6 @@ class MailViewController: UIViewController {
 
     }
     
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
-    }
 
     /*
     // MARK: - Navigation
