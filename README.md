@@ -19,3 +19,5 @@ Finished: All required, no optionals mostly because my edge pan view wouldn't be
 - Upon release, the message should continue to reveal the green background. When the animation it complete, it should hide the message.
 - After 260 pts, the icon should change to the delete icon and the background color should change to red.
 - Upon release, the message should continue to reveal the red background. When the animation it complete, it should hide the message.
+
+![alt tag](mailboxApp-om.gif)
