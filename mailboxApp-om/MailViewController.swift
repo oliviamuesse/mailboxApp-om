@@ -35,16 +35,15 @@ class MailViewController: UIViewController {
     }
     
     func resetMessage () {
-        messageView.frame.origin.x = 0
-        messageView.frame.origin.y = 0
         UIView.animateWithDuration(0.4, animations: { () -> Void in
             self.feedView.frame.origin.y = 143
             self.scrollView.contentSize = CGSizeMake(320, 1352)
             }) { (finished: Bool) -> Void in
                 self.delay(0.3) {
+                    self.messageView.frame.origin.x = 0
+                    self.messageView.frame.origin.y = 0
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.messageView.alpha = 1
-                        self.messageView.frame.origin.x = 0
                         self.feedView.frame.origin.y = 229
                         self.scrollView.contentSize = CGSizeMake(320, 1438)
                     })
@@ -157,7 +156,9 @@ class MailViewController: UIViewController {
              if velocity.x > 0 && imageCenter.x >= 200 && imageCenter.x < 280 {
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
                     self.messageView.center.x = 480
-                })
+                    }) { (finished: Bool) -> Void in
+                        self.resetMessage()
+                }
             
             //send red
             } else if velocity.x > 0 && imageCenter.x >= 280 && imageCenter.x < 480 {
