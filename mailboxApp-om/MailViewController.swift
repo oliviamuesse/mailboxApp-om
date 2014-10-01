@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MailViewController: UIViewController, UIScrollViewDelegate {
+class MailViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var navView: UIImageView!
@@ -23,6 +23,23 @@ class MailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var listIcon: UIImageView!
     @IBOutlet weak var rescheduleView: UIImageView!
     
+    @IBAction func onTapReschedule(sender: UITapGestureRecognizer) {
+        rescheduleView.alpha = 0
+        UIView.animateWithDuration(0, animations: { () -> Void in
+            self.messageView.alpha = 0
+            self.feedView.frame.origin.y = 143
+            self.scrollView.contentSize = CGSizeMake(320, 1352)
+            }) { (finished: Bool) -> Void in
+                self.delay(0.3) {
+                    self.messageView.alpha = 1
+                    self.messageView.frame.origin.x = 0
+                    self.feedView.frame.origin.y = 229
+                    self.scrollView.contentSize = CGSizeMake(320, 1438)
+                }
+        }
+        
+    }
+
     func hideIcons () {
         archiveIcon.alpha = 0
         deleteIcon.alpha = 0
@@ -62,7 +79,6 @@ class MailViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         scrollView.contentSize = CGSizeMake(320, 1438)
         hideIcons ()
-        scrollView.delegate = self
         rescheduleView.alpha = 0
         // Do any additional setup after loading the view.
     }
@@ -147,7 +163,6 @@ class MailViewController: UIViewController, UIScrollViewDelegate {
                 UIView.animateWithDuration(0.6, animations: {
                     self.rescheduleView.alpha = 1
                 })
-                //self.performSegueWithIdentifier("rSegue", sender: self)
             
                 //Send brown
             } else if velocity.x < 0 && imageCenter.x <= 10 && imageCenter.x > -120 {
@@ -165,6 +180,15 @@ class MailViewController: UIViewController, UIScrollViewDelegate {
             }
         }
 
+    }
+    
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
     }
 
     /*

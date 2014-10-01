@@ -74,9 +74,13 @@
                                         </segments>
                                         <color key="tintColor" red="0.10478098934656307" green="0.72996175644663941" blue="0.90300143494897955" alpha="1" colorSpace="calibratedRGB"/>
                                     </segmentedControl>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reschedule" id="YJ6-ej-a06">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reschedule" id="YJ6-ej-a06">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="tmu-c4-Wtx" appends="YES" id="3ox-Z5-F0A"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                             </scrollView>
@@ -104,6 +108,11 @@
                         <action selector="onPanContainer:" destination="vXZ-lx-hvc" id="Mgq-au-RKl"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="tmu-c4-Wtx">
+                    <connections>
+                        <action selector="onTapReschedule:" destination="vXZ-lx-hvc" id="Cmb-Ew-nha"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="162" y="334"/>
         </scene>
