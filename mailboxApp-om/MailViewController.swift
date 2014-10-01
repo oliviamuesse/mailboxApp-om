@@ -41,8 +41,8 @@ class MailViewController: UIViewController {
             self.feedView.frame.origin.y = 143
             self.scrollView.contentSize = CGSizeMake(320, 1352)
             }) { (finished: Bool) -> Void in
-                self.delay(0.2) {
-                    UIView.animateWithDuration(0.4, animations: { () -> Void in
+                self.delay(0.3) {
+                    UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.messageView.alpha = 1
                         self.messageView.frame.origin.x = 0
                         self.feedView.frame.origin.y = 229
@@ -154,7 +154,7 @@ class MailViewController: UIViewController {
             hideIcons()
             
             //Send green
-             if velocity.x > 0 && imageCenter.x >= 220 && imageCenter.x < 280 {
+             if velocity.x > 0 && imageCenter.x >= 200 && imageCenter.x < 280 {
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
                     self.messageView.center.x = 480
                 })
