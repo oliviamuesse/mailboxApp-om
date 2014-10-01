@@ -22,24 +22,36 @@ class MailViewController: UIViewController {
     @IBOutlet weak var laterIcon: UIImageView!
     @IBOutlet weak var listIcon: UIImageView!
     @IBOutlet weak var rescheduleView: UIImageView!
+    @IBOutlet weak var listView: UIImageView!
     
     @IBAction func onTapReschedule(sender: UITapGestureRecognizer) {
         rescheduleView.alpha = 0
+        resetMessage()
+    }
+
+    @IBAction func onTapList(sender: UITapGestureRecognizer) {
+        listView.alpha = 0
+        resetMessage()
+    }
+    
+    func resetMessage () {
         messageView.frame.origin.x = 0
         messageView.frame.origin.y = 0
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
             self.feedView.frame.origin.y = 143
             self.scrollView.contentSize = CGSizeMake(320, 1352)
             }) { (finished: Bool) -> Void in
-                UIView.animateWithDuration(0.3, animations: { () -> Void in
-                    self.messageView.alpha = 1
-                    self.messageView.frame.origin.x = 0
-                    self.feedView.frame.origin.y = 229
-                    self.scrollView.contentSize = CGSizeMake(320, 1438)
-                })
+                self.delay(0.2) {
+                    UIView.animateWithDuration(0.4, animations: { () -> Void in
+                        self.messageView.alpha = 1
+                        self.messageView.frame.origin.x = 0
+                        self.feedView.frame.origin.y = 229
+                        self.scrollView.contentSize = CGSizeMake(320, 1438)
+                    })
+                }
         }
     }
-
+    
     func hideIcons () {
         archiveIcon.alpha = 0
         deleteIcon.alpha = 0
@@ -80,6 +92,7 @@ class MailViewController: UIViewController {
         scrollView.contentSize = CGSizeMake(320, 1438)
         hideIcons ()
         rescheduleView.alpha = 0
+        listView.alpha = 0
         // Do any additional setup after loading the view.
     }
 
@@ -101,36 +114,36 @@ class MailViewController: UIViewController {
         } else if gestureRecognizer.state == UIGestureRecognizerState.Changed {
             messageView.center.x = translation.x + 160
             
-            //Swipe right, see red
+            //Swipe right, see green
             if imageCenter.x >= 220 && imageCenter.x < 280 {
                 self.archiveIcon.center.x = translation.x - 30
+                showArchiveIcon()
                 UIView.animateWithDuration(0.1, animations: { () -> Void in
                     self.containerView.backgroundColor = UIColor(red:0.42, green:0.78, blue:0.19, alpha:1.0)
-                    self.showArchiveIcon()
                 })
             
-            //Swipe right, see green
+            //Swipe right, see red
             } else if imageCenter.x >= 280 && location.x < 320 {
                 self.deleteIcon.center.x = translation.x - 30
+                showDeleteIcon()
                 UIView.animateWithDuration(0.2, animations: { () -> Void in
                     self.containerView.backgroundColor = UIColor(red:0.81, green:0.16, blue:0.05, alpha:1.0)
-                    self.showDeleteIcon()
                 })
             
             //Swipe left see yellow
             } else if imageCenter.x <= 100 && imageCenter.x > 10 {
                 self.laterIcon.center.x = translation.x + 350
+                showLaterIcon()
                 UIView.animateWithDuration(0.2, animations: { () -> Void in
                     self.containerView.backgroundColor = UIColor(red:0.95, green:0.76, blue:0.25, alpha:1.0)
-                    self.showLaterIcon()
                 })
             
             //Swipe left see brown
             } else if imageCenter.x <= 10 && imageCenter.x > -120  {
                 self.listIcon.center.x = translation.x + 350
+                showListIcon()
                 UIView.animateWithDuration(0.1, animations: { () -> Void in
                     self.containerView.backgroundColor = UIColor(red:0.42, green:0.29, blue:0.25, alpha:1.0)
-                    self.showListIcon()
                 })
             } else {
                 hideIcons()
@@ -140,25 +153,24 @@ class MailViewController: UIViewController {
         } else if gestureRecognizer.state == UIGestureRecognizerState.Ended {
             hideIcons()
             
-            //Send red
-            if velocity.x > 0 && imageCenter.x >= 220 && imageCenter.x < 280 {
+            //Send green
+             if velocity.x > 0 && imageCenter.x >= 220 && imageCenter.x < 280 {
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
                     self.messageView.center.x = 480
-                    self.containerView.backgroundColor = UIColor(red:0.42, green:0.78, blue:0.19, alpha:1.0)
                 })
             
-            //Send green
-            } else if velocity.x > 0 && imageCenter.x >= 280 && location.x < 320 {
+            //send red
+            } else if velocity.x > 0 && imageCenter.x >= 280 && imageCenter.x < 480 {
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
-                    self.messageView.center.x = 480
-                    self.containerView.backgroundColor = UIColor(red:0.81, green:0.16, blue:0.05, alpha:1.0)
-                })
+                        self.messageView.center.x = 480
+                }) { (finished: Bool) -> Void in
+                    self.resetMessage()
+                }
             
             //Send yellow
             } else if velocity.x < 0 && imageCenter.x <= 100 && imageCenter.x > 10 {
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
                     self.messageView.center.x = -320
-                    self.containerView.backgroundColor = UIColor(red:0.95, green:0.76, blue:0.25, alpha:1.0)
                 })
                 UIView.animateWithDuration(0.6, animations: {
                     self.rescheduleView.alpha = 1
@@ -168,7 +180,9 @@ class MailViewController: UIViewController {
             } else if velocity.x < 0 && imageCenter.x <= 10 && imageCenter.x > -120 {
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
                     self.messageView.center.x = -320
-                    self.containerView.backgroundColor = UIColor(red:0.42, green:0.29, blue:0.25, alpha:1.0)
+                })
+                UIView.animateWithDuration(0.6, animations: {
+                    self.listView.alpha = 1
                 })
                 
             //Back to gray
@@ -182,6 +196,14 @@ class MailViewController: UIViewController {
 
     }
     
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
 
     /*
     // MARK: - Navigation

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "mailboxApp-om/MailViewController.swift"
-            timestampString = "433821274.546842"
+            timestampString = "433824794.291697"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "onPanContainer(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "mailboxApp-om/MailViewController.swift"
-            timestampString = "433821274.546842"
+            timestampString = "433825170.269807"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "onPanContainer(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,13 +42,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "mailboxApp-om/MailViewController.swift"
-            timestampString = "433821274.546842"
+            timestampString = "433821679.016761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
-            landmarkName = "onPanContainer(_:)"
-            landmarkType = "5">
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "MailViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mailboxApp_om.MailViewController.__deallocating_deinit"
+                  moduleName = "mailboxApp-om"
+                  urlString = "file:///Users/olivia/Git/codePath/mailboxApp-om/mailboxApp-om/MailViewController.swift"
+                  timestampString = "433821679.019421"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "@objc mailboxApp_om.MailViewController.__ivar_destroyer"
+                  moduleName = "mailboxApp-om"
+                  urlString = "file:///Users/olivia/Git/codePath/mailboxApp-om/mailboxApp-om/MailViewController.swift"
+                  timestampString = "433821679.019596"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

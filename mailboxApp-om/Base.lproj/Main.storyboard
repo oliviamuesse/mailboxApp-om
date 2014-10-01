@@ -82,6 +82,14 @@
                                             <outletCollection property="gestureRecognizers" destination="tmu-c4-Wtx" appends="YES" id="3ox-Z5-F0A"/>
                                         </connections>
                                     </imageView>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list" id="tZp-vY-eHd">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="BMp-uO-RO0" appends="YES" id="7zr-dr-sz3"/>
+                                        </connections>
+                                    </imageView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -95,6 +103,7 @@
                         <outlet property="helpView" destination="CnX-Iy-Kbt" id="oVi-hw-Ahz"/>
                         <outlet property="laterIcon" destination="Yw1-Y6-tJQ" id="4IS-y2-pR5"/>
                         <outlet property="listIcon" destination="5LX-N3-ynJ" id="V0P-ce-UR5"/>
+                        <outlet property="listView" destination="tZp-vY-eHd" id="fDF-6X-59X"/>
                         <outlet property="messageView" destination="n75-1I-mCt" id="g4x-Rd-By0"/>
                         <outlet property="navView" destination="Uac-9i-zkt" id="xCU-FX-wYN"/>
                         <outlet property="rescheduleView" destination="YJ6-ej-a06" id="LU6-Xv-FSk"/>
@@ -108,9 +117,14 @@
                         <action selector="onPanContainer:" destination="vXZ-lx-hvc" id="Mgq-au-RKl"/>
                     </connections>
                 </panGestureRecognizer>
-                <tapGestureRecognizer id="tmu-c4-Wtx">
+                <tapGestureRecognizer id="tmu-c4-Wtx" userLabel="tapReschedule">
                     <connections>
                         <action selector="onTapReschedule:" destination="vXZ-lx-hvc" id="Cmb-Ew-nha"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="BMp-uO-RO0" userLabel="tapList">
+                    <connections>
+                        <action selector="onTapList:" destination="vXZ-lx-hvc" id="X7i-az-C6z"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -123,6 +137,7 @@
         <image name="feed" width="320" height="1202"/>
         <image name="help_label" width="320" height="37"/>
         <image name="later_nav_icon" width="25" height="20"/>
+        <image name="list" width="320" height="568"/>
         <image name="list_icon" width="25" height="25"/>
         <image name="mail_nav_icon" width="25" height="20"/>
         <image name="message" width="320" height="86"/>
